@@ -91,11 +91,7 @@ return `${bookObj.title} - ${bookObj.author} - ${bookObj.pages} pages`
 // Your code here:
 
 booksArray.forEach (function (book) {
-  for (let key in book) {
-    if (key === "details") {
-      delete book[key].language
-    }
-  }
+  delete book.details.language
 })
 
 console.log(booksArray)
