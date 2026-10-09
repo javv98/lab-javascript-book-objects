@@ -136,19 +136,28 @@ function booksByAuthor(dictionary) {
   let newArr = []
 
   for (let author in dictionary) {
-    author.forEach(function(info, i){
-       newArr.push({})
-      if (i === 0) {
-        newArr[i].title = 
-      }
+    dictionary[author].forEach(function(info) {
+      newArr.push({title: info[0], pages: info[1], author: author })
     })
   }
+  return newArr
 }
 
-
-
 // Bonus: Iteration 6 | Average Page Count
-function averagePageCount() {
+function averagePageCount(booksArr) {
   // Your code here:
-  
+  console.log(booksArr)
+  let sumAllBookPages = 0
+  let countBooks = 0
+  for (let books of booksArr) {
+    countBooks++
+    for (let info in books) {
+      if (info === "pages") {
+        sumAllBookPages += books[info]
+        console.log(sumAllBookPages)
+      }
+    }
+  }
+
+  return sumAllBookPages / countBooks
 }
